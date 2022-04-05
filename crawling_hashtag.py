@@ -81,24 +81,6 @@ df.to_csv("{}.csv".format(tag), encoding='utf-8-sig', index=False)      # csv파
 # df.to_csv("{}.csv".format(tag_id), encoding='utf-8-sig', index=False)   
 
 
-## 이부분은 아나콘다노트북에서 켜서 그리기!
-
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
-
-matplotlib.rcParams['font.family'] ='Malgun Gothic' ##폰트설정
-matplotlib.rcParams['axes.unicode_minus'] =False    ##한글폰트 사용시 마이너스 글자가 깨지는 현상을 해결
-
-dt = pd.read_csv('E:/ts/벚꽃.csv')                  ##
-x = pd.DataFrame(dt.value_counts()[:10])            ## 10번째까지 호출하고 데이터 프레임으로 변환
-x.columns = ['value']                               ## 데이터프레임으로 변환한 (X)에 칼럼이름을 'value'로 지정 
-x = x.reset_index(drop=False)                       ## 인덱스에 있던값을 변수로 집어넣으면서 인덱스 자리에 숫자로 전환
-plt.bar(x['hash_tags'], x['value'])                 ## x축에는 'hash_tags'컬럼의 값을 , y축에는 'value' 컬럼의 숫자카운팅한 값을 이용하여 그래프 만듦
-plt.xticks(rotation=70)                             ## x축 라벨 회전
-plt.ylim([0, 80])                                   ## y축의 크기설정 0~80
-plt.title("HASH_TAG TOP 10")                        ## 표의 제목설정
-
 
 
 
